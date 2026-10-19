@@ -6,9 +6,9 @@ using Service.DTOs;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ProductsController(ProductService productService) : ControllerBase
+public class ProductsController(IProductService productService) : ControllerBase
 {
-    private readonly ProductService _productService = productService;
+    private readonly IProductService _productService = productService;
 
     [HttpGet]
     public async Task<IActionResult> GetAll()

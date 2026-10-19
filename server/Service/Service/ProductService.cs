@@ -6,7 +6,13 @@ using Infrastructure.Entities;
 using Service.DTOs;
 using LinqToDB.Async;
 
-public class ProductService(AppDataConnection db)
+public interface IProductService
+{
+    Task<List<Product>> GetAllProductsAsync();
+    Task<Product> CreateProductAsync(CreateProductRequest request);
+}
+
+public class ProductService(AppDataConnection db) : IProductService
 {
     private readonly AppDataConnection _db = db;
 
